@@ -75,7 +75,7 @@ def call_claude_api(user_input, image):
 
         # 构建 API 请求消息
         headers = {
-            "x-api-key": "sk-y4WrOWfbLMD6QzIccF7Z44Wcvw71XGjpRUsI10mSbvzxnl0p",
+            "x-api-key": "WTS",      # 更换为正确的 API 密钥
             "anthropic-version": "2023-06-01",
             "content-type": "application/json",
         }
@@ -158,8 +158,12 @@ if __name__ == "__main__":
     # 合并裁剪后的图像
     merged_image = grounded_sam.merge_cropped_boxes(image_path, boxes, output_path=None)
 
-    text = "尽可能用中文以json格式输出图片中从左到右所有主要物体的信息,包括商品名称、分类、tag、口味等属性,只输出物品信息,自然语言的部分尽量使用中文,不要输出多余的文字,注意是从左到右"
-
+    text = (
+    "请以严格的JSON格式输出图片中从左到右所有主要物体的信息，"
+    "JSON结构固定为：{\"商品列表\": [{\"名称\": \"\", \"包装\": \"\", \"品牌\": \"\", \"口味\": \"\", \"特点\": []}]}。"
+    "请严格按照上述JSON格式输出，不要添加任何多余的文字或自然语言描述。"
+    "确保所有物体按从左到右的顺序依次排列在\"商品列表\"中。"
+    )
     # 调用Claude API并获取返回结果
     response = call_claude_api(text, merged_image)
     
