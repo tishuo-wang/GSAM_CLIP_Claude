@@ -6,6 +6,11 @@
 **写在前面**：  
 本项目的测试和调用文件为`test.py`、`test_gsam_claude.py`和`test_gsam_clip.py`，分别实现了通过大模型和CLIP模型的物体检测与分类。具体使用方法详解“4. 使用说明”。
 
+权重文件为(解压在根目录下即可)：
+
+- [weights1](https://pan.baidu.com/s/12_PfeiR033lQmG2IUpgpqg?pwd=wts1)
+- [weights2](https://pan.baidu.com/s/1fBZ8Kj1bjqkh-BuZxAFEFg?pwd=wts1)
+
 ---
 
 ## 1. 项目简介
